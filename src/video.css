@@ -1,0 +1,25 @@
+.video-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    width: 100%;
+}
+
+.control-container{
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    column-gap: 10px;
+}
+
+h5{
+    padding: 4px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#deddd9;
+    
+    
+}

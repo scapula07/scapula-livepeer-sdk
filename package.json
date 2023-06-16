@@ -1,0 +1,27 @@
+{
+  "name": "@scapula/joysticklabs-livepeer-rtmp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/babel src --out-file index.jsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "axios": "^1.4.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-icons": "^4.9.0",
+    "react-webcam": "^7.1.0",
+    "socket.io-client": "^4.6.2"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.4",
+    "@babel/preset-react": "^7.22.3"
+  }
+}
