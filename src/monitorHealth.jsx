@@ -1,5 +1,6 @@
 import React ,{useState,useEffect} from 'react'
 import axios from 'axios'
+import "./health.css"
 
 export default function MonitorHealth({streamId,apiKey}) {
 
@@ -38,8 +39,38 @@ export default function MonitorHealth({streamId,apiKey}) {
  
 
   return (
-    <div>
+    <div className='monitor-container'>
+        <h5 className='heading-monitor'>Health Status</h5>
 
+        <div className='status-div'>
+            {[{
+                type:"Status",
+                state:"idle"
+              },
+              {
+                type:"Transcoding",
+                state:"---"
+              },
+              {
+                type:"Realtime",
+                state:"---"
+
+              }
+        
+             ].map((state)=>{
+                return(
+                    <div className='types'>
+                        <h5 className='type-h'>{state.type} :</h5>
+                        <h5 className='type-h'>{state.state}</h5>
+
+                     </div>
+                )
+            })
+
+            }
+
+        </div>
+         
     </div>
   )
 }

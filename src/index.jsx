@@ -6,9 +6,10 @@ import {MdCallEnd} from "react-icons/md"
 import {TbScreenShare} from "react-icons/tb"
 import { io } from "socket.io-client";
 import "./video.css"
-import "./index.css"
+
 
 export default function CamLivepeer(url) {
+    const [active,setActive]=useState("")
    
     let on = false
      
@@ -247,25 +248,26 @@ export default function CamLivepeer(url) {
                 autoPlay
                 muted={true}
               />
+             
             
              <div className='control-container' >
-                 <h5>
+                 <h5  className={`${active=="mic"? "active" :"btn" }`}  onClick={()=>setActive("mic")}>
                     <BsMic 
                      style={{fontSize:"20px"}}
                      onClick={toggleMicrophone}
                     />
                  </h5>
-                 <h5>
+                 <h5 className={`${active=="cam"? "active" :"btn" }`} onClick={()=>setActive("cam")}>
                     <BsCameraVideo 
                       style={{fontSize:"20px"}}
                       onClick={startRecording}
                     />
                  </h5>
-                 <h5>
+                 <h5 className={`${active=="end"? "active" :"btn" }`} onClick={()=>setActive("end")}>
                     <MdCallEnd style={{fontSize:"20px",color:"red"}}
                     />
                  </h5>
-                 <h5>
+                 <h5 className={`${active=="share"? "active" :"btn" }`} onClick={()=>setActive("share")}>
                     <TbScreenShare 
                        style={{fontSize:"20px"}}
                        onClick={toggleScreenSharing}

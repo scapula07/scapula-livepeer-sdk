@@ -6,7 +6,7 @@ import {BiWebcam} from "react-icons/bi"
 import {MdCallEnd} from "react-icons/md"
 import {TbScreenShare} from "react-icons/tb"
 import "./video.css"
-import "./index.css"
+
 
 
 export default function CamLivepeer({url,streamKey,streamName}) {
