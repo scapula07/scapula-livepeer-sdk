@@ -8,7 +8,8 @@ import { io } from "socket.io-client";
 import "./video.css"
 
 
-export default function CamLivepeer(url) {
+export default function CamLivepeer({url}) {
+   console.log(url,"url")
     const [active,setActive]=useState("")
    
     let on = false
@@ -89,7 +90,8 @@ export default function CamLivepeer(url) {
           //     senders.current.find(sender => sender.track.kind === "video").replaceTrack(userStream.current.getTracks()[1]);
           // }
           const mediaStream = new MediaStream([screenTrack]);
-          var socket =new WebSocket("ws://139.162.151.105:5001")
+          // var socket =new WebSocket("wss://docker.freetyl.io/rtmp://rtmp.livepeer.com/live/d40f-3nc3-sl74-ja7t")
+          var socket =new WebSocket(url)
        
           mediaRecorder.current = new MediaRecorder(mediaStream, {
             mimeType: 'video/webm;codecs=h264',
@@ -105,8 +107,7 @@ export default function CamLivepeer(url) {
                console.log("Websocket closed")
                socket.close()
                
-               var newSocket =new WebSocket("ws://localhost:5001")
-               sleep(30000)
+               var newSocket =new WebSocket(url)
                
               
               
@@ -196,7 +197,7 @@ export default function CamLivepeer(url) {
       }
       const recorderInit = () => {
         console.log("init")
-        var socket =new WebSocket("wss://docker.freetyl.io")
+        var socket = new WebSocket(url)
         liveStream = videoRef.current.captureStream(30) // 30 FPS
         mediaRecorder.current = new MediaRecorder(liveStream, {
           mimeType: 'video/webm;codecs=h264',
@@ -204,7 +205,7 @@ export default function CamLivepeer(url) {
           videoBitsPerSecond: 3 * 1024 * 1024,
         })
         mediaRecorder.current.ondataavailable = (e) => {
-          socket =new WebSocket("wss://docker.freetyl.io")
+          socket =new WebSocket(url)
           socket.onopen=(event)=>{
       
            console.log(event,"socket event")
@@ -213,7 +214,7 @@ export default function CamLivepeer(url) {
              console.log("Websocket closed")
              socket.close()
              
-             var newSocket =new WebSocket("wss://docker.freetyl.io")
+             var newSocket =new WebSocket(url)
              sleep(30000)
              
        

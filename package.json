@@ -1,5 +1,5 @@
 {
-  "name": "@scapula/joysticklabs-livepeer-rtmp",
+  "name": "@joysticklabs/livepeer-webwss",
   "version": "1.0.0",
   "description": "",
   "main": "index.jsx",
